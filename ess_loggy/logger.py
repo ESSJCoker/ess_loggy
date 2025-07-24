@@ -18,7 +18,9 @@ class JsonFormatter(logging.Formatter):
             'level': record.levelname,
             'name': record.name,
             'message': record.getMessage(),
-            'time': self.formatTime(record, self.datefmt),
+            # 'time': self.formatTime(record, self.datefmt),
+            'time': self.formatTime(record, datefmt="%Y-%m-%dT%H:%M:%S.%fZ"),
+
         }
         return json.dumps(log_record)
 
